@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="Main.css">
 </head>
 <body>
+    
     <div class="theme-toggle">
         <button id="themeButton" class="theme-button">🌙 Dark Mode</button>
     </div>
@@ -15,33 +16,92 @@
         <div class="header">
             <img src="../Images/Pic ko.jpg" alt="Profile Picture" class="profile-img">
             <div class="header-content">
-                <h1>Hi! I'm <span class="highlight">&lt;CrammyDev/&gt;</span></h1>
-                <p class="subtitle">Back-End Developer</p>
-                <div class="social-links">
-                    <a href="https://web.facebook.com/marcjan.banzal/" target="_blank">
-                        <img src="../Images/facebook (1).png" alt="Facebook">
-                    </a>
-                    <a href="https://www.instagram.com/_cramyy/saved/" target="_blank">
-                        <img src="../Images/instagram (1).png" alt="Instagram">
-                    </a>
-                    <a href="https://github.com/Crammydev" target="_blank">
-                        <img src="../Images/github.png" alt="GitHub">
-                    </a>
-                    <a href="https://telegram.org" target="_blank">
-                        <img src="../Images/telegram.png" alt="Telegram">
-                    </a>
-                </div>
+                <h1 id="typewriterHeading">Hi! I'm <span class="highlight">&lt;CrammyDev/&gt;</span></h1>
+                <script>
+                    const headingText = "Hi! I'm &lt;CrammyDev/&gt;";
+                    let index1 = 0;
+
+                    function typeWriterHeading() {
+                        if (index1 < headingText.length) {
+                            document.getElementById("typewriterHeading").innerHTML = headingText.substring(0, index1 + 1) + `<span class="caret">|</span>`;
+                            index1++;
+                            setTimeout(typeWriterHeading, 100); // Speed in milliseconds
+                        } else {
+                            document.querySelector(".caret").remove(); // Remove the caret after completion
+                        }
+                    }
+
+                    typeWriterHeading();
+                </script>
+
+                <p class="subtitle" id="typewriter"></p>
+                    <script>
+                        const text = "Back-End Developer";
+                        let i = 0;
+                        const speed = 100;
+
+                        function typeWriter() {
+                            if (i < text.length) {
+                                document.getElementById("typewriter").textContent += text.charAt(i);
+                                i++;
+                                setTimeout(typeWriter, speed);
+                            }
+                        }
+                        typeWriter();
+                    </script>
+                            <div class="social-links">
+                                <a href="https://web.facebook.com/marcjan.banzal/" >
+                                    <img src="../Images/facebook (1).png" alt="Facebook">
+                                </a>
+                                <a href="https://www.instagram.com/_cramyy/saved/" >
+                                    <img src="../Images/instagram (1).png" alt="Instagram">
+                                </a>
+                                <a href="https://github.com/Crammydev" >
+                                    <img src="../Images/github.png" alt="GitHub">
+                                </a>
+                                <a href="https://telegram.org">
+                                    <img src="../Images/telegram.png" alt="Telegram">
+                                </a>
+                            </div>
             </div>
-            <img src="../Images/cramdevlogo-transformed-removebg-preview.png" alt="Profile Picture" class="profile-img">
+            <div class="cramlogo">
+                <img src="../Images/cramdevlogo-transformed-removebg-preview.png" alt="Profile Picture" class="profile-img">
+            </div>
         </div>
 
         <!-- About Me Section -->
         <section>
-            <h2>About Me</h2>
-            <p>
-                I'm currently a 3rd-year college student at Colegio De Montalban, taking Bachelor of Science in Information Technology. I specialize in crafting efficient back-end systems while continuously exploring front-end technologies.
-            </p>
+            <h2 id="typewriterAbout"></h2>
+            <p id="typewriterParagraph"></p>
+        
+            <script>
+                const aboutTitle = "About Me";
+                const aboutContent = "I'm currently a 3rd-year college student at Colegio De Montalban, taking Bachelor of Science in Information Technology. I specialize in crafting efficient back-end systems while continuously exploring front-end technologies.";
+        
+                let index2 = 0, index3 = 0;
+        
+                function typeWriterAboutTitle() {
+                    if (index2 < aboutTitle.length) {
+                        document.getElementById("typewriterAbout").textContent += aboutTitle.charAt(index2);
+                        index2++;
+                        setTimeout(typeWriterAboutTitle, 100);
+                    } else {
+                        typeWriterAboutParagraph(); // Start typing the paragraph after the title
+                    }
+                }
+        
+                function typeWriterAboutParagraph() {
+                    if (index3 < aboutContent.length) {
+                        document.getElementById("typewriterParagraph").textContent += aboutContent.charAt(index3);
+                        index3++;
+                        setTimeout(typeWriterAboutParagraph, 50); // Adjust speed for paragraph typing
+                    }
+                }
+        
+                typeWriterAboutTitle();
+            </script>
         </section>
+        
 
         <!-- GitHub Contributions -->
         <section>            
@@ -60,7 +120,24 @@
                 <img src="../Images/js.png" alt="JavaScript">
             </div>
         </section>
-
+        <section>
+            <h2>Skills</h2>
+            <div class="skill-bar">
+                <div class="bar">
+                    <span>HTML</span>
+                    <div class="progress html" data-skill="90%"></div>
+                </div>
+                <div class="bar">
+                    <span>CSS</span>
+                    <div class="progress css" data-skill="85%"></div>
+                </div>
+                <div class="bar">
+                    <span>JavaScript</span>
+                    <div class="progress js" data-skill="75%"></div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Tools Section -->
         <section>
             <h2>Tools</h2>
@@ -69,13 +146,25 @@
                 <img src="../Images/visual studio.png" alt="vs">
             </div>
         </section>
+        
+        
 
         <!-- Footer -->
         <footer>
             &copy; 2024 &lt;CrammyDev/&gt; - All Rights Reserved
         </footer>
     </div>
-
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('section', {
+            distance: '50px',
+            origin: 'bottom',
+            duration: 1000,
+            reset: true
+        });
+    </script>
+    
     <script src="theme-toggle.js"></script>
+    
 </body>
 </html>
