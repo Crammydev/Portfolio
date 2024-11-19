@@ -1,0 +1,223 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: #f9f9f9; /* Light Mode Background */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    padding: 20px;
+    margin: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    color: #cfcfcf;
+}
+
+/* Theme Button */
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.theme-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #5b3eff, #3b0152);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.theme-button:hover {
+    background: linear-gradient(90deg, #5b3eff, #3b0152);
+    transform: scale(1.05);
+}
+
+body.dark-mode .theme-button {
+    background: linear-gradient(90deg, #6c63ff, #2b2b52);
+}
+
+.theme-button:focus {
+    outline: none;
+}
+
+
+/* Header */
+.header {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #0000;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    flex: 1;
+}
+
+.header-content h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.highlight {
+    color: #ff0000;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #555;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-links img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-links a:hover img {
+    transform: scale(1.1);
+}
+
+
+/* Sections */
+section {
+    margin-top: 30px;
+}
+
+section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #000000;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 5px;
+}
+
+section p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* GitHub Contributions */
+.github-img {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.contribution{
+    border-radius: 20px;
+}
+
+/* Skills & Tools */
+.skills, .tools {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.skills img, .tools img {
+    width: 50px;
+    height: 50px;
+
+    transition: transform 0.3s;
+}
+
+.skills img:hover, .tools img:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 20px;
+    }
+
+    .header-content {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .profile-img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    section h2 {
+        font-size: 18px;
+    }
+
+    section p {
+        font-size: 14px;
+    }
+
+    .skills img, .tools img {
+        width: 40px;
+        height: 40px;
+    }
+}
